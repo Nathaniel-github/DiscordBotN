@@ -27,7 +27,14 @@ jobs:
         run: |
           wget -O junit-4.13.2.jar "https://search.maven.org/remotecontent?filepath=junit/junit/4.13.2/junit-4.13.2.jar"
           wget -O hamcrest-core-1.3.jar "https://search.maven.org/remotecontent?filepath=org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"
-          
+      
+      - uses: actions/upload-artifact@master
+        with:
+          name: jar-artifacts
+          path: |
+            ./junit-4.13.2.jar
+            ./hamcrest-core-1.3.jar
+      
       - name: Compile the test code
         run: javac -cp .:junit-4.13.2.jar:hamcrest-core-1.3.jar CalculatorTest.java
 
@@ -46,6 +53,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - uses: actions/download-artifact@v2
+        with:
+          name: jar-artifacts
       
       # Runs a single command using the runners shell
       - name: Verify changes
