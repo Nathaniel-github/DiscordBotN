@@ -57,6 +57,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: jar-artifacts
+          path: ./DiscordBotN
       
       # Runs a single command using the runners shell
       - name: Verify changes
