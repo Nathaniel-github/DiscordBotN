@@ -22,6 +22,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
+      - name: Download jar files
+        run: wget -O processing_core.jar "https://github.com/HHSAPCompSci2020/capstone-project-hbb/blob/main/lib/processing_core.jar?raw=true"
+      
+      - uses: actions/upload-artifact@master
+        with:
+          name: jar-artifacts
+          path: ./processing_core.jar
+      
       - name: Compile the test code
         run: |
           javac LineTest.java
@@ -38,10 +46,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: jar-artifacts
+          path: ./DiscordBotN
+
       - name: Compile the test code
         run: |
-          javac LineTest.java
+          javac -cp .:processing_core.jar LineTest.java
           javac Line.java
         
       - name: Test vertical lines
@@ -58,10 +71,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: jar-artifacts
+          path: ./DiscordBotN
+          
       - name: Compile the test code
         run: |
-          javac LineTest.java
+          javac -cp .:processing_core.jar LineTest.java
           javac Line.java
         
       - name: Test parallel lines
@@ -78,10 +96,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: jar-artifacts
+          path: ./DiscordBotN
+          
       - name: Compile the test code
         run: |
-          javac LineTest.java
+          javac -cp .:processing_core.jar LineTest.java
           javac Line.java
         
       - name: Test intersecting lines
@@ -98,10 +121,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: jar-artifacts
+          path: ./DiscordBotN
+          
       - name: Compile the test code
         run: |
-          javac LineTest.java
+          javac -cp .:processing_core.jar LineTest.java
           javac Line.java
         
       - name: Test non-intersecting lines
@@ -118,10 +146,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: jar-artifacts
+          path: ./DiscordBotN
+          
       - name: Compile the test code
         run: |
-          javac LineTest.java
+          javac -cp .:processing_core.jar LineTest.java
           javac Line.java
         
       - name: Test collinear lines
