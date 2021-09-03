@@ -32,7 +32,7 @@ jobs:
       
       - name: Compile the test code
         run: |
-          javac LineTest.java
+          javac -cp .:processing_core.jar LineTest.java
           javac Line.java
           
   test_vertical_lines:
