@@ -23,7 +23,9 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Download jar files
-        run: wget -O processing_core.jar "https://github.com/HHSAPCompSci2020/capstone-project-hbb/blob/main/lib/processing_core.jar?raw=true"
+        run: |
+          wget -O processing_core.jar "https://github.com/HHSAPCompSci2020/capstone-project-hbb/blob/main/lib/processing_core.jar?raw=true"
+          ls
       
       - uses: actions/upload-artifact@master
         with:
