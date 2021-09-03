@@ -30,7 +30,7 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: jar-artifacts
-          path: processing_core.jar
+          path: ./DiscordBotN/processing_core.jar
       
       - name: Compile the test code
         run: |
