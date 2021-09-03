@@ -35,7 +35,7 @@ jobs:
       - name: Compile the test code
         run: |
           javac -cp .:processing_core.jar LineTest.java
-          javac Line.java
+          javac -cp .:processing_core.jar Line.java
           
   test_vertical_lines:
     # The type of runner that the job will run on
@@ -57,7 +57,7 @@ jobs:
       - name: Compile the test code
         run: |
           javac -cp .:processing_core.jar LineTest.java
-          javac Line.java
+          javac -cp .:processing_core.jar Line.java
         
       - name: Test vertical lines
         run: java -ea LineTest vertical
@@ -82,7 +82,7 @@ jobs:
       - name: Compile the test code
         run: |
           javac -cp .:processing_core.jar LineTest.java
-          javac Line.java
+          javac -cp .:processing_core.jar Line.java
         
       - name: Test parallel lines
         run: java -ea LineTest parallel
@@ -107,7 +107,7 @@ jobs:
       - name: Compile the test code
         run: |
           javac -cp .:processing_core.jar LineTest.java
-          javac Line.java
+          javac -cp .:processing_core.jar Line.java
         
       - name: Test intersecting lines
         run: java -ea LineTest intersecting
@@ -132,7 +132,7 @@ jobs:
       - name: Compile the test code
         run: |
           javac -cp .:processing_core.jar LineTest.java
-          javac Line.java
+          javac -cp .:processing_core.jar Line.java
         
       - name: Test non-intersecting lines
         run: java -ea LineTest non_intersecting
@@ -157,7 +157,7 @@ jobs:
       - name: Compile the test code
         run: |
           javac -cp .:processing_core.jar LineTest.java
-          javac Line.java
+          javac -cp .:processing_core.jar Line.java
         
       - name: Test collinear lines
         run: java -ea LineTest collinear
